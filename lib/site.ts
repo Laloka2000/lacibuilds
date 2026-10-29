@@ -7,8 +7,7 @@ export const site = {
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
     (productionUrl ? `https://${productionUrl}` : "http://localhost:3000"),
-  // TODO: add the photo to public/ and set e.g. "/laci.jpg"
-  avatar: null as string | null,
+  avatar: "/laci.jpg" as string | null,
   // TODO: shown in the FAQ intro once set
   email: "",
   handle: "@laci.builds",
