@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Laci Builds
 
-## Getting Started
+The brand site for Laci Builds: products, build log and newsletter.
 
-First, run the development server:
+Next.js (App Router), Tailwind CSS v4 and GSAP, deployed on Vercel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Commands
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Command | What it does |
+|---|---|
+| `npm run dev` | Dev server on http://localhost:3000 (draft posts are visible) |
+| `npm run build` | Production build (draft posts are left out) |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Path | Contents |
+|---|---|
+| `app/globals.css` | Design tokens (`@theme`), type utilities, base styles, reduced motion |
+| `lib/site.ts` | Site URL, social links, email, avatar, footer links |
+| `content/products.ts` | Products and product page content |
+| `content/posts/*.md` | Build log posts (frontmatter: `title`, `date`, `tag`, `excerpt`, `draft`) |
+| `lib/newsletter.ts` | The only file that talks to the newsletter provider |
+| `components/HeroReveal.tsx` | The GSAP hero entrance animation |
 
-## Learn More
+## Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+See `.env.example`. Copy it to `.env.local` locally, and add the same keys in Vercel project settings.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Before launch
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Empty values are hidden on the page, so nothing bracketed ships. Still to fill in (search for `TODO`):
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Photo (`public/` + `site.avatar`), social URLs and contact email in `lib/site.ts`
+- CrawlGuard price in `content/products.ts`
+- Whether to keep "Revenue: $0/mo, for now" in `components/BrandCard.tsx`
+- Newsletter provider and its environment variables
+- Posts: set a `date` and `draft: false` to publish
