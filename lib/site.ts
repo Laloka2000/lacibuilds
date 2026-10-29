@@ -15,13 +15,13 @@ export const site = {
   cvUrl: "https://lelovicslaszlo.hu",
 };
 
-// TODO: fill in the profile URLs. Links with an empty href are not rendered.
+// Links with an empty href are not rendered.
 const allSocials = [
-  { label: "X", href: "" },
-  { label: "GitHub", href: "" },
-  { label: "TikTok", href: "" },
-  { label: "Instagram", href: "" },
-  { label: "Threads", href: "" },
+  { label: "X", href: "https://x.com/laci_builds" },
+  { label: "GitHub", href: "" }, // TODO: GitHub profile URL
+  { label: "TikTok", href: "https://www.tiktok.com/@laci.builds" },
+  { label: "Instagram", href: "https://www.instagram.com/laci.builds/" },
+  { label: "Threads", href: "https://www.threads.com/@laci.builds" },
 ];
 
 export const socials = allSocials.filter((s) => s.href);
