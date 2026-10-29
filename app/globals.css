@@ -1,26 +1,189 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-page: #edf0f4;
+  --color-surface: #fbfcfd;
+  --color-surface-muted: #f3f5f8;
+  --color-ink: #0b1220;
+  --color-navy: #0b1630;
+  --color-navy-line: #22304f;
+  --color-navy-input: #111f3f;
+  --color-navy-input-border: #33456b;
+  --color-text-strong: #3a4658;
+  --color-text-muted: #4a5568;
+  --color-on-navy: #f4f6fa;
+  --color-on-navy-muted: #c3ccda;
+  --color-on-navy-label: #a8b3c7;
+  --color-on-navy-link: #d5dce7;
+  --color-border: #d8dee6;
+  --color-border-form: #cdd5df;
+  --color-border-list: #c9d1dc;
+  --color-border-inner: #e3e8ee;
+  --color-row-hover: #f6f8fa;
+  --color-accent: #4ade80;
+  --color-on-accent-muted: #12301f;
+
+  --ease-brand: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --shadow-card: 0 24px 44px -20px rgb(11 22 48 / 0.32);
+  --shadow-brand: 0 30px 60px -30px rgb(11 22 48 / 0.6);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+@utility font-headline {
+  @apply font-display font-extrabold;
+  font-stretch: 112%;
+}
+
+@utility type-h1 {
+  font-size: clamp(44px, 5vw, 68px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+@utility type-h1-product {
+  font-size: clamp(52px, 7vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+@utility type-h2 {
+  font-size: clamp(36px, 4.2vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+@utility type-band {
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+@utility highlight {
+  padding-inline: 4px;
+  background: linear-gradient(
+    transparent 58%,
+    var(--color-accent) 58%,
+    var(--color-accent) 90%,
+    transparent 90%
+  );
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-page);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+
+  [data-surface="dark"] :focus-visible {
+    outline-color: var(--color-accent);
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-ink);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  [data-hero-item] {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .post-body {
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--color-text-strong);
+  }
+
+  .post-body > * + * {
+    margin-top: 1.25em;
+  }
+
+  .post-body h2,
+  .post-body h3 {
+    margin-top: 2em;
+    font-family: var(--font-archivo);
+    font-weight: 750;
+    font-stretch: 106%;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--color-ink);
+  }
+
+  .post-body h2 { font-size: 30px; }
+  .post-body h3 { font-size: 23px; }
+
+  .post-body a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .post-body strong { font-weight: 600; color: var(--color-ink); }
+  .post-body ul { list-style: disc; padding-left: 1.25em; }
+  .post-body ol { list-style: decimal; padding-left: 1.25em; }
+  .post-body li + li { margin-top: 0.4em; }
+
+  .post-body blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1em;
+    color: var(--color-ink);
+  }
+
+  .post-body code {
+    font-family: var(--font-dm-mono);
+    font-size: 0.9em;
+    background: var(--color-border-inner);
+    padding: 0.1em 0.35em;
+    border-radius: 6px;
+  }
+
+  .post-body pre {
+    overflow-x: auto;
+    padding: 20px;
+    border-radius: 16px;
+    background: var(--color-navy);
+    color: var(--color-on-navy);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .post-body pre code { background: none; padding: 0; }
 }
