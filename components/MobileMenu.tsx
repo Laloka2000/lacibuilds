@@ -47,7 +47,7 @@ export function MobileMenu({ links }: { links: NavLink[] }) {
       <div
         aria-hidden="true"
         onClick={() => setOpen(false)}
-        className={`fixed inset-0 z-10 bg-ink/30 transition-opacity ease-brand ${
+        className={`fixed inset-0 z-10 bg-page/80 transition-opacity ease-brand ${
           open ? "duration-500" : "pointer-events-none opacity-0 duration-200"
         }`}
       />

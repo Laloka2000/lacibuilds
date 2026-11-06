@@ -88,6 +88,8 @@
     background-color: var(--color-page);
     color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
+    /* The open mobile menu locks scrolling; the layout must not shift when the scrollbar goes */
+    scrollbar-gutter: stable;
   }
 
   :focus-visible {
