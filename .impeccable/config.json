@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-11-06T19:30:22.032Z",
+        "reason": "Claude triage: the flagged rule is the left rule on .post-body blockquote, a standard typographic quote style in Markdown prose, not a card"
+      }
+    ]
+  }
+}
