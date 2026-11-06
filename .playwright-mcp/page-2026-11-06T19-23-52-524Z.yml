@@ -1,0 +1,88 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "laci builds" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - link "Join the waitlist" [ref=e7] [cursor=pointer]:
+      - /url: "#waitlist"
+    - generic [ref=e8]:
+      - button "Menu" [ref=e9]
+      - navigation:
+        - list:
+          - listitem:
+            - link:
+              - /url: /#products
+              - text: Products
+              - generic [aria-hidden]: →
+          - listitem:
+            - link:
+              - /url: "#faq"
+              - text: FAQ
+              - generic [aria-hidden]: →
+  - main [ref=e13]:
+    - region [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - heading "How it will work" [level=2] [ref=e20]
+          - paragraph [ref=e21]: The planned flow. The details get shaped together with the waitlist.
+        - list [ref=e22]:
+          - listitem [ref=e23]:
+            - generic [ref=e25]:
+              - heading "Add it to your workflow" [level=3] [ref=e26]
+              - paragraph [ref=e27]: Drop the CrawlGuard Action into your repository, next to your other checks.
+          - listitem [ref=e28]:
+            - generic [ref=e30]:
+              - heading "Open a pull request" [level=3] [ref=e31]
+              - paragraph [ref=e32]: CrawlGuard checks the changes for technical SEO breakage.
+          - listitem [ref=e33]:
+            - generic [ref=e35]:
+              - heading "Fix it before merge" [level=3] [ref=e36]
+              - paragraph [ref=e37]: Problems show up on the PR, so they never reach production.
+    - region [ref=e38]:
+      - generic [ref=e39]:
+        - heading "FAQ" [level=2] [ref=e41]
+        - generic [ref=e42]:
+          - group [ref=e43]:
+            - generic "What does CrawlGuard check?" [ref=e44] [cursor=pointer]:
+              - generic [aria-hidden] [ref=e46]: +
+            - paragraph [ref=e47]: Technical SEO basics that tend to break quietly during a deploy, like an accidental noindex, a missing canonical tag or a changed robots.txt. The full list is being shaped with the people on the waitlist.
+          - group [ref=e48]:
+            - generic "Is it available yet?" [ref=e49] [cursor=pointer]:
+              - generic [aria-hidden] [ref=e51]: +
+          - group [ref=e52]:
+            - generic "Who is it for?" [ref=e53] [cursor=pointer]:
+              - generic [aria-hidden] [ref=e55]: +
+          - group [ref=e56]:
+            - generic "How much will it cost?" [ref=e57] [cursor=pointer]:
+              - generic [aria-hidden] [ref=e59]: +
+          - group [ref=e60]:
+            - generic "Will there be a WordPress version?" [ref=e61] [cursor=pointer]:
+              - generic [aria-hidden] [ref=e63]: +
+          - group [ref=e64]:
+            - generic "Who's building it?" [ref=e65] [cursor=pointer]:
+              - generic [aria-hidden] [ref=e67]: +
+    - region [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - heading "Get in before launch." [level=2] [ref=e71]
+          - paragraph [ref=e72]: Join the waitlist and help decide what CrawlGuard checks first.
+        - generic [ref=e74]:
+          - generic [ref=e75]: Work email
+          - generic [ref=e76]:
+            - textbox "Work email" [ref=e78]:
+              - /placeholder: you@company.com
+            - button "Join the waitlist" [ref=e79]
+  - contentinfo [ref=e80]:
+    - link "laci builds" [ref=e81] [cursor=pointer]:
+      - /url: /
+    - list [ref=e85]:
+      - listitem [ref=e86]:
+        - link "All products" [ref=e87] [cursor=pointer]:
+          - /url: /#products
+      - listitem [ref=e88]:
+        - link "Build log" [ref=e89] [cursor=pointer]:
+          - /url: /blog
+      - listitem [ref=e90]:
+        - link "X" [ref=e91] [cursor=pointer]:
+          - /url: https://x.com/laci_builds
+    - paragraph [ref=e92]: © 2026 Laci Builds
+  - alert [ref=e93]

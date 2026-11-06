@@ -13,7 +13,11 @@ export function LogoMark() {
 
 export function Logo() {
   return (
-    <Link href="/" className="inline-flex min-h-11 items-center gap-2.5">
+    // When the row is too narrow the wordmark wraps out of this clipped box, leaving the mark
+    <Link
+      href="/"
+      className="inline-flex h-11 min-w-0 flex-wrap content-start items-center gap-2.5 overflow-hidden py-1.5"
+    >
       <LogoMark />
       <span className="font-headline text-[19px] tracking-[-0.03em]">
         laci builds

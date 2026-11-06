@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { MobileMenu } from "@/components/MobileMenu";
 import type { NavLink } from "@/lib/site";
 import { buttonClass } from "@/lib/styles";
 
@@ -10,13 +11,10 @@ type HeaderProps = {
 
 export function Header({ links, cta }: HeaderProps) {
   return (
-    <header className="wrap flex min-h-[72px] flex-wrap items-center justify-between gap-x-4 py-3">
+    <header className="wrap relative z-50 flex min-h-[72px] items-center gap-x-2 py-3 sm:gap-x-4">
       <Logo />
 
-      <nav
-        aria-label="Main"
-        className="order-last -ml-3 w-full sm:order-none sm:ml-auto sm:w-auto"
-      >
+      <nav data-nav aria-label="Main" className="hidden sm:ml-auto sm:block">
         <ul className="flex gap-1">
           {links.map((link) => (
             <li key={link.href}>
@@ -31,9 +29,11 @@ export function Header({ links, cta }: HeaderProps) {
         </ul>
       </nav>
 
-      <Link href={cta.href} className={buttonClass("dark")}>
+      <Link href={cta.href} className={`ml-auto sm:ml-0 ${buttonClass("dark", "header")}`}>
         {cta.label}
       </Link>
+
+      <MobileMenu links={links} />
     </header>
   );
 }

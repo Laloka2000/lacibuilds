@@ -43,7 +43,10 @@ export default function RootLayout({
       <body className="font-sans text-ink">
         {children}
         <noscript>
-          <style>{"[data-hero-item]{visibility:visible!important}"}</style>
+          <style>
+            {"[data-hero-item]{visibility:visible!important}" +
+              "@media(max-width:39.99rem){header{flex-wrap:wrap}[data-nav]{display:block!important;order:1;width:100%}[data-menu-toggle]{display:none!important}}"}
+          </style>
         </noscript>
       </body>
     </html>

@@ -5,17 +5,17 @@ const tones = {
 };
 
 const sizes = {
-  sm: "min-h-11 px-6",
-  md: "min-h-12 px-6",
-  lg: "min-h-[52px] px-8",
+  header: "min-h-11 px-3 text-[14px] sm:px-6 sm:text-[16px]", // shares a phone-width row with the logo and menu button
+  md: "min-h-12 px-6 text-[16px]",
+  lg: "min-h-[52px] px-8 text-[16px]",
 };
 
 export type ButtonTone = keyof typeof tones;
 export type ButtonSize = keyof typeof sizes;
 
-export function buttonClass(tone: ButtonTone, size: ButtonSize = "sm") {
+export function buttonClass(tone: ButtonTone, size: ButtonSize) {
   return [
-    "inline-flex shrink-0 items-center justify-center rounded-full text-[16px] font-semibold whitespace-nowrap",
+    "inline-flex shrink-0 items-center justify-center rounded-full font-semibold whitespace-nowrap",
     "transition-transform duration-200 ease-brand motion-safe:active:scale-[.97]",
     "disabled:cursor-not-allowed disabled:opacity-60",
     tones[tone],
